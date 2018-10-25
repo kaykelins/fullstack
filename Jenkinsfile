@@ -18,11 +18,13 @@ pipeline {
     }
     stage('check') {
       steps {
+        sh 'ls -l -a'
         sh 'yarn check'
       }
     }
     stage('build') {
       steps {
+        sh 'ls -l -a'
         sh 'yarn build'
       }
     }
