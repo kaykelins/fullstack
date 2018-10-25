@@ -8,8 +8,8 @@ pipeline {
   stages {
     stage('confgs') {
       steps {
-        dir(path: 'backend')
         sh 'ls -l -a'
+        dir(path: 'backend/')
         sh '''yarn install
 '''
       }
