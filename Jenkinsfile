@@ -28,10 +28,7 @@ pipeline {
     stage('build') {
       steps {
         dir(path: 'backend/') {
-          catchError() {
-            sh 'yarn build'
-          }
-
+          build(job: 'yarn build', quietPeriod: 2)
         }
 
       }
