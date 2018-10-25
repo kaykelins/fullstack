@@ -11,6 +11,7 @@ pipeline {
         sh 'cd backend'
         sh '''yarn install
 '''
+        sh 'ls -l -a'
       }
     }
     stage('check') {
