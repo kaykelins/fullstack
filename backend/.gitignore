@@ -1,2 +1,7 @@
+#folders
+node_modules/
 
-/node_modules
+#logs
+*.log
+yarn-debug.log*
+yarn-error.log*
