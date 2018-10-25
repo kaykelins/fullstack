@@ -28,7 +28,7 @@ pipeline {
     stage('build') {
       steps {
         dir(path: 'backend/') {
-          build(job: 'yarn build', quietPeriod: 2)
+          isUnix()
         }
 
       }
