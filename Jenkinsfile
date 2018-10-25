@@ -8,6 +8,7 @@ pipeline {
   stages {
     stage('confgs') {
       steps {
+        sh 'cd backend'
         sh '''yarn install
 '''
       }
