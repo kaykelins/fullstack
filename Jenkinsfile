@@ -28,8 +28,6 @@ pipeline {
     stage('build') {
       steps {
         dir(path: 'backend/') {
-          sh 'yarn build'
-          sleep 3
           catchError() {
             sh 'yarn build'
           }
