@@ -26,15 +26,24 @@ pipeline {
       }
     }
     stage('build') {
-      steps {
-        dir(path: 'backend/') {
-          timeout(time: 1, activity: true) {
-            sh '''yarn build
+      parallel {
+        stage('build') {
+          steps {
+            dir(path: 'backend/') {
+              timeout(time: 1, activity: true) {
+                sh '''yarn build
 '''
+              }
+
+            }
+
           }
-
         }
-
+        stage('') {
+          steps {
+            sh 'curl localhost:3000'
+          }
+        }
       }
     }
   }
