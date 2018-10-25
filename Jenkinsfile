@@ -18,14 +18,19 @@ pipeline {
     }
     stage('check') {
       steps {
-        sh 'ls -l -a'
-        sh 'yarn check'
+        dir(path: 'backend/') {
+          sh 'yarn check'
+          sh 'ls -l -a'
+        }
+
       }
     }
     stage('build') {
       steps {
-        sh 'ls -l -a'
-        sh 'yarn build'
+        dir(path: 'backend/') {
+          sh 'yarn build'
+        }
+
       }
     }
   }
