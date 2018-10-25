@@ -28,7 +28,11 @@ pipeline {
     stage('build') {
       steps {
         dir(path: 'backend/') {
-          isUnix()
+          timeout(time: 1, activity: true) {
+            sh '''yarn build
+'''
+          }
+
         }
 
       }
