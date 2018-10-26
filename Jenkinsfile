@@ -29,7 +29,7 @@ pipeline {
       steps {
         dir(path: 'backend/') {
           catchError() {
-            timeout(time: 1, activity: true) {
+            timeout(time: 1) {
               sh 'yarn build'
             }
 
