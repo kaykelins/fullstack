@@ -27,8 +27,8 @@ pipeline {
     }
     stage('build') {
       steps {
-        dir(path: 'backend/') {
-          catchError() {
+        catchError() {
+          dir(path: 'backend/') {
             timeout(time: 2, activity: true, unit: 'SECONDS') {
               sh 'yarn build'
             }
