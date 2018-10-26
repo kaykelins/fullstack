@@ -28,7 +28,7 @@ pipeline {
     stage('build') {
       steps {
         dir(path: 'backend/') {
-          timeout(time: 1) {
+          timeout(time: 10, activity: true, unit: 'MILLISECONDS') {
             sh 'yarn build'
           }
 
