@@ -8,8 +8,8 @@ pipeline {
   stages {
     stage('confgs') {
       steps {
-        sh 'ls -l -a'
         dir(path: 'backend/') {
+          sh 'ls -l -a'
           sh '''yarn install
 '''
         }
@@ -28,10 +28,11 @@ pipeline {
     stage('build') {
       steps {
         dir(path: 'backend/') {
-          catchError() {
+          timeout(activity: true, time: 1) {
             sh 'yarn build'
           }
 
+          isUnix()
         }
 
       }
