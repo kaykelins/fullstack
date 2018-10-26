@@ -37,10 +37,6 @@ pipeline {
 
         }
 
-      }
-    }
-    stage('sucess') {
-      steps {
         echo 'works'
       }
     }
