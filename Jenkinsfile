@@ -31,18 +31,14 @@ pipeline {
           steps {
             catchError() {
               dir(path: 'backend/') {
-                timeout(time: 2, activity: true, unit: 'SECONDS') {
-                  sh 'yarn build'
-                }
-
+                sh 'yarn build'
               }
 
             }
 
-            echo 'works'
           }
         }
-        stage('') {
+        stage('error') {
           steps {
             sh 'netstat -l | egrep 3000'
           }
