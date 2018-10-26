@@ -26,18 +26,27 @@ pipeline {
       }
     }
     stage('build') {
-      steps {
-        catchError() {
-          dir(path: 'backend/') {
-            timeout(time: 2, activity: true, unit: 'SECONDS') {
-              sh 'yarn build'
+      parallel {
+        stage('build') {
+          steps {
+            catchError() {
+              dir(path: 'backend/') {
+                timeout(time: 2, activity: true, unit: 'SECONDS') {
+                  sh 'yarn build'
+                }
+
+              }
+
             }
 
+            echo 'works'
           }
-
         }
-
-        echo 'works'
+        stage('') {
+          steps {
+            sh 'netstat -l | egrep 3000'
+          }
+        }
       }
     }
   }
