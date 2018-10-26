@@ -28,7 +28,7 @@ pipeline {
     stage('build') {
       steps {
         dir(path: 'backend/') {
-          sh 'yarn build'
+          sh 'yarn build2'
         }
 
       }
