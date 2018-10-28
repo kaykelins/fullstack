@@ -6,11 +6,14 @@
   "author": "kayke lins",
   "license": "MIT",
   "private": false,
-  "scripts":{
-    "build":"node index.js",
-    "test":"curl localhost:3000"
+  "scripts": {
+    "build": "node index.js",
+    "test": "curl localhost:3000"
   },
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "jest": "^23.6.0"
   }
 }
